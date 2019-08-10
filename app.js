@@ -18,9 +18,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));//估计是内部使用，浏览器访问不了
 console.log("============"+__dirname)
-//注册路由
+//注册路由 访问http://lochost:port/images/lufei.jpg
+//http://lochost:port/index/
 app.use("/images",express.static('images'))//可以直接访问里面的图片
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
