@@ -19,7 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 //注册路由
+app.use("/public",express.static('public'))//可以直接访问里面的图片
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
